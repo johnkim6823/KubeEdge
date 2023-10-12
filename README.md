@@ -39,13 +39,19 @@ cp keadm-/<version>-linux-amd64/keadm/keadm /usr/local/bin/keadm
 ```
 ### 3.1 Setting up Cloudcore
 ```
-keadm init --advertise-address="<cloud-IP" --profile version=<version> --kube-config=/root/.kube/config
+keadm init --advertise-address="<cloud-ip>" --profile version=<version> --kube-config=/root/.kube/config
 ```
 ```
 kubectl get all -n kubeedge
 ```
+And Get token for Edgecore to join
+```
+keadm token > token.txt
+```
 ### 3.2 Setting up EdgeCore
-
+```
+keadm join --cloudcore-ipport="<cloud-ip>":10000 --token=<token>
+```
 
 
 
