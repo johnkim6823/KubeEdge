@@ -30,3 +30,22 @@ sudo su
 ./k8s-cluster-bootstrap.sh -w -i <cloud-IP> -u <username> -p <password> -ct containerd -v <kubernetes version>
 ```
 
+## Setting KubeEdge environment
+### 3. Installing keadm (Master | Worker )
+```
+wget https://github.com/kubeedge/kubeedge/releases/download/<version>/keadm-/<version>-linux-amd64.tar.gz
+tar -zxvf keadm-/<version>-linux-amd64.tar.gz
+cp keadm-/<version>-linux-amd64/keadm/keadm /usr/local/bin/keadm
+```
+### 3.1 Setting up Cloudcore
+```
+keadm init --advertise-address="<cloud-IP" --profile version=<version> --kube-config=/root/.kube/config
+```
+```
+kubectl get all -n kubeedge
+```
+### 3.2 Setting up EdgeCore
+
+
+
+
