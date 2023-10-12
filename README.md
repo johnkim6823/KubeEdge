@@ -3,7 +3,7 @@ How to Install k8s and KubeEdge and set up the envirionment
 
 ## Setting kubernetes envrionment
 ### 0. Prerequisites
----------------------------------------
+---
 #### 0.1 Get bootstrap.sh from ###
 #### 0.2 Move shell script to home directroy
 ```
