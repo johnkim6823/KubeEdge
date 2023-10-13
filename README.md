@@ -34,6 +34,9 @@ From Master get join command
 kubeadm token create --print-join-command 
 ```
 Put command in Worker node to join the cluster 
+```
+kubeadm join <cloud-ip>:6443 --token <token>
+```
 Restart the kubelet
 ```
 systemctl restart kubelet
