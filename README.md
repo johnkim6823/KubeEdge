@@ -29,6 +29,15 @@ sudo su
 sudo su
 ./k8s-cluster-bootstrap.sh -w -i <cloud-IP> -u <username> -p <password> -ct containerd -v <kubernetes version>
 ```
+From Master get join command
+```
+kubeadm token create --print-join-command 
+```
+Put command in Worker node to join the cluster 
+Restart the kubelet
+```
+systemctl restart kubelet
+```
 
 ## Setting KubeEdge environment
 ### 3. Installing keadm (Master | Worker )
