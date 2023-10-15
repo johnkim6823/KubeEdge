@@ -3,7 +3,7 @@ How to Install k8s and KubeEdge and set up the envirionment
 |            | Node1         | Node2         | Node3       | 
 |------------|---------------|---------------|-------------|
 | Kubernetes | v.1.25.0      | v.1.25.0      |             |
-| KubeEdge   | v.1.12        |               | v.1.12      |
+| KubeEdge   | v.1.12.4      |               | v.1.12.4    |
 | ROLE       | k8s, ke Master| k8s worker    | ke worker   |
 
 
