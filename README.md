@@ -64,10 +64,10 @@ NAMESPACE: kubeedge
 STATUS: deployed
 REVISION: 1
 ```
-Ensure that cloudcore start successfully just like below.
-```
+Ensure that cloudcore start successfully.
 ```
 kubectl get all -n kubeedge
+```
 ```
 If it successed, then pod Status must be Running not CrushLoopBack and service/Cloudcore must be exists
 ```
