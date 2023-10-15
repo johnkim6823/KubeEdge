@@ -43,7 +43,7 @@ systemctl restart kubelet
 ```
 
 ## Setting KubeEdge environment
-### 3. Installing keadm (Master | Worker )
+### 3.0 Installing keadm (Master | Worker )
 ```
 wget https://github.com/kubeedge/kubeedge/releases/download/<version>/keadm-/<version>-linux-amd64.tar.gz
 tar -zxvf keadm-/<version>-linux-amd64.tar.gz
@@ -53,8 +53,61 @@ cp keadm-/<version>-linux-amd64/keadm/keadm /usr/local/bin/keadm
 ```
 keadm init --advertise-address="<cloud-ip>" --profile version=<version> --kube-config=/root/.kube/config
 ```
+If it successed
+```
+Kubernetes version verification passed, KubeEdge installation will start...
+CLOUDCORE started
+=========CHART DETAILS=======
+NAME: cloudcore
+LAST DEPLOYED: Wed Oct 26 11:10:04 2022
+NAMESPACE: kubeedge
+STATUS: deployed
+REVISION: 1
+```
+Ensure that cloudcore start successfully just like below.
+```
 ```
 kubectl get all -n kubeedge
+```
+If it successed, then pod Status must be Running not CrushLoopBack and service/Cloudcore must be exists
+```
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/cloudcore-56b8454784-ngmm8   1/1     Running   0          46s
+
+NAME                TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)                                             AGE
+service/cloudcore   ClusterIP   10.96.96.56   <none>        10000/TCP,10001/TCP,10002/TCP,10003/TCP,10004/TCP   46s
+
+NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/cloudcore   1/1     1            1           46s
+
+NAME                                   DESIRED   CURRENT   READY   AGE
+replicaset.apps/cloudcore-56b8454784   1         1         1       46s
+```
+Next, we need to add a NodeLabel to the master node so that we can utilize the NodeLabel to schedule the CloudCore to the Master node.
+```
+kubectl label node <master <node name> node-role.kubernetes.io/nodeType=cloudCore
+```
+Edit cloudCore deployment and add a Node Affinity, NodeSelector and Tolerance.
+```
+~~~~
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: node-role.kubernetes.io/nodeType
+          operator: In
+          values:
+          - cloudCore
+tolerations:
+- key: "node-role.kubernetes.io/control-plane"
+  operator: "Exists"
+  effect: "NoSchedule"
+- key: "node-role.kubernetes.io/master"
+  operator: "Exists"
+  effect: "NoSchedule"
+nodeSelector:
+  node-role.kubernetes.io/nodeType: cloudCore
 ```
 And Get token for Edgecore to join
 ```
