@@ -68,7 +68,6 @@ Ensure that cloudcore start successfully.
 ```
 kubectl get all -n kubeedge
 ```
-```
 If it successed, then pod Status must be Running not CrushLoopBack and service/Cloudcore must be exists
 ```
 NAME                             READY   STATUS    RESTARTS   AGE
