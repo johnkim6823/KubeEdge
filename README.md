@@ -3,41 +3,39 @@
 ### My Envrionment setting 
 <table>
   <tr>
-    <th></th>
-    <th>Node1</th>
-    <th>Node2</th>
-    <th>Node3</th>
+    <th align="center"></th>
+    <th align="center">Node1</th>
+    <th align="center">Node2</th>
+    <th align="center">Node3</th>
   </tr>
   <tr>
-    <td>OS</td>
-    <td colspan="3" align="center">ubuntu 20.04.0 LTS</td> <!-- 이 셀은 가운데 정렬됩니다. -->
+    <td align="center">OS</td>
+    <td colspan="3" align="center">ubuntu 20.04.0 LTS</td>
   </tr>
   <tr>
-    <td>CORE(MEM)</td>
-    <td>4Core(16GB)</td>
-    <td>4Core(16GB)</td>
-    <td>2Core(4GB)</td>
+    <td align="center">CORE(MEM)</td>
+    <td align="center">4Core(16GB)</td>
+    <td align="center">4Core(16GB)</td>
+    <td align="center">2Core(4GB)</td>
   </tr>
   <tr>
-    <td>Kubernetes</td>
-    <td colspan="2" align="center">v.1.25.0</td> <!-- 이 셀도 가운데 정렬됩니다. -->
-    <td></td> <!-- 이 셀은 비어 있지만, 마크업에서는 필요합니다. -->
+    <td align="center">Kubernetes</td>
+    <td colspan="2" align="center">v.1.25.0</td>
+    <td align="center"></td>
   </tr>
   <tr>
-    <td>KubeEdge</td>
-    <td>v.1.12.4</td>
-    <td></td> <!-- 이 셀은 비어 있습니다. -->
-    <td>v.1.12.4</td>
+    <td align="center">KubeEdge</td>
+    <td align="center">v.1.12.4</td>
+    <td align="center"></td>
+    <td align="center">v.1.12.4</td>
   </tr>
   <tr>
-    <td>ROLE</td>
-    <td>k8s, ke Master</td>
-    <td>k8s worker</td>
-    <td>ke worker</td>
+    <td align="center">ROLE</td>
+    <td align="center">k8s, ke Master</td>
+    <td align="center">k8s worker</td>
+    <td align="center">ke worker</td>
   </tr>
 </table>
-
-
 
 ## Setting kubernetes envrionment
 ### 0. Prerequisites
