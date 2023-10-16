@@ -8,6 +8,43 @@ How to Install k8s and KubeEdge and set up the envirionment
 | KubeEdge      | v.1.12.4        |               | v.1.12.4    |
 | ROLE          | k8s, ke Master  | k8s worker    | ke worker   |
 
+<table>
+  <tr>
+    <th></th>
+    <th>Node1</th>
+    <th>Node2</th>
+    <th>Node3</th>
+  </tr>
+  <tr>
+    <td>OS</td>
+    <td colspan="3">ubuntu 20.04.0 LTS</td> <!-- 이 셀은 Node1부터 Node3까지 확장됩니다. -->
+  </tr>
+  <tr>
+    <td>CORE(MEM)</td>
+    <td>4Core(16GB)</td>
+    <td>4Core(16GB)</td>
+    <td>2Core(4GB)</td>
+  </tr>
+  <tr>
+    <td>Kubernetes</td>
+    <td colspan="2">v.1.25.0</td> <!-- 이 셀은 Node1부터 Node2까지 확장됩니다. -->
+    <td></td> <!-- 이 셀은 비어 있지만, 마크업에서는 필요합니다. -->
+  </tr>
+  <tr>
+    <td>KubeEdge</td>
+    <td>v.1.12.4</td>
+    <td></td> <!-- 이 셀은 비어 있습니다. -->
+    <td>v.1.12.4</td>
+  </tr>
+  <tr>
+    <td>ROLE</td>
+    <td>k8s, ke Master</td>
+    <td>k8s worker</td>
+    <td>ke worker</td>
+  </tr>
+</table>
+
+
 ## Setting kubernetes envrionment
 ### 0. Prerequisites
 #### 0.1 Get bootstrap.sh from ###
