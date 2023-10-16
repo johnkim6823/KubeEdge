@@ -1,7 +1,7 @@
 # Setting Up KubeEdge Envrionment
 ## How to Install k8s and KubeEdge and set up the envirionment 
 ### My Envrionment setting 
-<table>
+<table class="center">
   <tr>
     <th></th>
     <th>Node1</th>
