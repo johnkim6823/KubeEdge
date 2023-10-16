@@ -1,13 +1,6 @@
 # Setting Up KubeEdge Envrionment
-How to Install k8s and KubeEdge and set up the envirionment
-|               | Node1           | Node2         | Node3       | 
-| :-----------: | :-------------: | :-----------: |:-----------:|
-| OS            | ubuntu 20.04.0 LTS                          |||
-| CORE(MEM)     | 4Core(16GB)     | 4Core(16GB)   | 2Core(4GB)  | 
-| Kubernetes    | v.1.25.0                       ||             |
-| KubeEdge      | v.1.12.4        |               | v.1.12.4    |
-| ROLE          | k8s, ke Master  | k8s worker    | ke worker   |
-
+## How to Install k8s and KubeEdge and set up the envirionment 
+### My Envrionment setting 
 <table>
   <tr>
     <th></th>
@@ -17,7 +10,7 @@ How to Install k8s and KubeEdge and set up the envirionment
   </tr>
   <tr>
     <td>OS</td>
-    <td colspan="3">ubuntu 20.04.0 LTS</td> <!-- 이 셀은 Node1부터 Node3까지 확장됩니다. -->
+    <td colspan="3" style="text-align: center;">ubuntu 20.04.0 LTS</td> <!-- 이 셀은 가운데 정렬됩니다. -->
   </tr>
   <tr>
     <td>CORE(MEM)</td>
@@ -27,7 +20,7 @@ How to Install k8s and KubeEdge and set up the envirionment
   </tr>
   <tr>
     <td>Kubernetes</td>
-    <td colspan="2">v.1.25.0</td> <!-- 이 셀은 Node1부터 Node2까지 확장됩니다. -->
+    <td colspan="2" style="text-align: center;">v.1.25.0</td> <!-- 이 셀도 가운데 정렬됩니다. -->
     <td></td> <!-- 이 셀은 비어 있지만, 마크업에서는 필요합니다. -->
   </tr>
   <tr>
@@ -43,6 +36,7 @@ How to Install k8s and KubeEdge and set up the envirionment
     <td>ke worker</td>
   </tr>
 </table>
+
 
 
 ## Setting kubernetes envrionment
