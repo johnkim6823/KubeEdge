@@ -1,16 +1,12 @@
 # Setting Up KubeEdge Envrionment
 How to Install k8s and KubeEdge and set up the envirionment
 |               | Node1           | Node2         | Node3       | 
-|:-------------:|:---------------:|:-------------:|:-----------:|
+| :-----------: | :-------------: | :-----------: |:-----------:|
 | OS            | ubuntu 20.04.0 LTS                          |||
 | CORE(MEM)     | 4Core(16GB)     | 4Core(16GB)   | 2Core(4GB)  | 
 | Kubernetes    | v.1.25.0                       ||             |
 | KubeEdge      | v.1.12.4        |               | v.1.12.4    |
 | ROLE          | k8s, ke Master  | k8s worker    | ke worker   |
-
-| Column 1 | Column 2 | Column 3 | Column 4 |
-| -------- | :------: | -------- | -------- |
-| No span  | Span across three columns    |||
 
 ## Setting kubernetes envrionment
 ### 0. Prerequisites
