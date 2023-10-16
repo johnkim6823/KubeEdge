@@ -1,7 +1,7 @@
 # Setting Up KubeEdge Envrionment
  How to Install k8s and KubeEdge and set up the envirionment 
 ### My Envrionment setting 
-<table class="center">
+<table>
   <tr>
     <th></th>
     <th>Node1</th>
@@ -10,7 +10,7 @@
   </tr>
   <tr>
     <td>OS</td>
-    <td colspan="3">ubuntu 20.04.0 LTS</td> <!-- 이 셀은 가운데 정렬됩니다. -->
+    <td colspan="3" align="center">ubuntu 20.04.0 LTS</td> <!-- 이 셀은 가운데 정렬됩니다. -->
   </tr>
   <tr>
     <td>CORE(MEM)</td>
@@ -20,7 +20,7 @@
   </tr>
   <tr>
     <td>Kubernetes</td>
-    <td colspan="2">v.1.25.0</td> <!-- 이 셀도 가운데 정렬됩니다. -->
+    <td colspan="2" align="center">v.1.25.0</td> <!-- 이 셀도 가운데 정렬됩니다. -->
     <td></td> <!-- 이 셀은 비어 있지만, 마크업에서는 필요합니다. -->
   </tr>
   <tr>
