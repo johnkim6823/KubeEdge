@@ -52,12 +52,12 @@ chmod +x k8s-cluster-bootstrap.sh
 #### 1. master setup
 ```
 sudo su
-./k8s-cluster-bootstrap.sh -m -c 192.168.0.0/16 -i <cloud-IP> -ct containerd -v <kubernetes version>
+./k8s-cluster-bootstrap.sh -m -c 192.168.0.0/16 -i <cloud-IP>  -v 1.25.0
 ```
 #### 2. worker setup
 ```
 sudo su
-./k8s-cluster-bootstrap.sh -w -i <cloud-IP> -u <username> -p <password> -ct containerd -v <kubernetes version>
+./k8s-cluster-bootstrap.sh -w -i <cloud-IP> -u <username> -p <password> -v 1.25.0
 ```
 From Master get join command
 ```
@@ -73,12 +73,37 @@ systemctl restart kubelet
 ```
 
 ## Setting KubeEdge environment
+### 3.0.1 Prerequisites
+See Go is in local variable
+```
+go version
+```
+if not set it as local variable 
+```
+echo 'export PATH=$PATH:/usr/local/go/bin' >>${HOME_PATH}/.profile
+echo 'export GOPATH=$HOME/go' >>${HOME_PATH}/.profile
+source ${HOME_PATH}/.profile
+mkdir -p $GOPATH
+go version
+```
+or download
+```
+wget https://golang.org/dl/go1.20.5.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.20.5.linux-amd64.tar.gz
+echo 'export PATH=$PATH:/usr/local/go/bin' >>${HOME_PATH}/.profile
+echo 'export GOPATH=$HOME/go' >>${HOME_PATH}/.profile
+source ${HOME_PATH}/.profile
+mkdir -p $GOPATH
+go version
+```
 ### 3.0 Installing keadm (Master | Worker )
 ```
-wget https://github.com/kubeedge/kubeedge/releases/download/<version>/keadm-/<version>-linux-amd64.tar.gz
-tar -zxvf keadm-/<version>-linux-amd64.tar.gz
+wget https://github.com/kubeedge/kubeedge/releases/download/v1.12.4/keadm-v1.12.4-linux-amd64.tar.gz
+tar -zxvf keadm-v1.12.4-linux-amd64.tar.gz
 cp keadm-/<version>-linux-amd64/keadm/keadm /usr/local/bin/keadm
+keadm version 
 ```
+
 ### 3.1 Setting up Cloudcore
 ```
 keadm init --advertise-address="<cloud-ip>" --profile version=<version> --kube-config=/root/.kube/config
@@ -116,7 +141,8 @@ Next, we need to add a NodeLabel to the master node so that we can utilize the N
 ```
 kubectl label node <master <node name> node-role.kubernetes.io/nodeType=cloudCore
 ```
-Edit cloudCore deployment and add a Node Affinity, NodeSelector and Tolerance.
+#Edit cloudCore deployment and add a Node Affinity, NodeSelector and Tolerance.
+kubectl edit deployment -n kubeedge cloudcore
 ```
 ~~~~
 affinity:
