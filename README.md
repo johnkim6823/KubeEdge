@@ -100,7 +100,7 @@ go version
 ```
 wget https://github.com/kubeedge/kubeedge/releases/download/v1.12.4/keadm-v1.12.4-linux-amd64.tar.gz
 tar -zxvf keadm-v1.12.4-linux-amd64.tar.gz
-cp keadm-/<version>-linux-amd64/keadm/keadm /usr/local/bin/keadm
+cp keadm-v1.12.4-linux-amd64/keadm/keadm /usr/local/bin/keadm
 keadm version 
 ```
 
