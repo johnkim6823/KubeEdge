@@ -25,9 +25,9 @@
   </tr>
   <tr>
     <td align="center">KubeEdge</td>
-    <td align="center">v.1.12.4</td>
+    <td align="center">v.1.12.1</td>
     <td align="center"></td>
-    <td align="center">v.1.12.4</td>
+    <td align="center">v.1.12.1</td>
   </tr>
   <tr>
     <td align="center">ROLE</td>
