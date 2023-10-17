@@ -106,7 +106,7 @@ keadm version
 
 ### 3.1 Setting up Cloudcore
 ```
-keadm init --advertise-address="<cloud-ip>" --profile version=<version> --kube-config=/root/.kube/config
+keadm init --kubeedge-version=1.12.4 --kube-config=/root/.kube/config --advertise-address=<cloudcore ip>
 ```
 If it successed
 ```
@@ -164,13 +164,15 @@ tolerations:
 nodeSelector:
   node-role.kubernetes.io/nodeType: cloudCore
 ```
+Check the kubeedge version
+
 And Get token for Edgecore to join
 ```
 keadm token > token.txt
 ```
 ### 3.2 Setting up EdgeCore
 ```
-keadm join --cloudcore-ipport="<cloud-ip>":10000 --token=<token>
+keadm join --cloudcore-ipport=<cloudcore_ip>:10000 --token=<token>
 ```
 
 
