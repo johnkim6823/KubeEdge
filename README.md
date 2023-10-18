@@ -16,7 +16,7 @@
     <td align="center">CORE(MEM)</td>
     <td align="center">4Core(16GB)</td>
     <td align="center">4Core(16GB)</td>
-    <td align="center">2Core(4GB)</td>
+    <td align="center">2Core(2GB)</td>
   </tr>
   <tr>
     <td align="center">Kubernetes</td>
@@ -25,9 +25,9 @@
   </tr>
   <tr>
     <td align="center">KubeEdge</td>
-    <td align="center">v.1.15.0</td>
+    <td align="center">v.1.13.2</td>
     <td align="center"></td>
-    <td align="center">v.1.15.0</td>
+    <td align="center">v.1.13.2</td>
   </tr>
   <tr>
     <td align="center">ROLE</td>
@@ -39,7 +39,24 @@
 
 ## Setting kubernetes envrionment
 ### 0. Prerequisites
-#### 0.1 Get bootstrap.sh from ###
+Please work on root 
+```
+sudo su -
+```
+#### Change Hostname ( not necessary ) 
+For master
+```
+hostnamectl set-hostname master
+```
+For k8s worker
+```
+hostnamectl set-hostname k8s_worker
+```
+For ke worker
+```
+hostnamectl set-hostname ke_worker
+```
+#### 0.1 Get bootstrap.sh from K.Dgyun
 #### 0.2 Move shell script to home directroy
 ```
 cd k8s-cluster-bootstrap
@@ -51,12 +68,10 @@ chmod +x k8s-cluster-bootstrap.sh
 ```
 #### 1. master setup
 ```
-sudo su
 ./k8s-cluster-bootstrap.sh -m -c 192.168.0.0/16 -i <cloud-IP> -ct containerd -v 1.26.7
 ```
 #### 2. worker setup
 ```
-sudo su
 ./k8s-cluster-bootstrap.sh -w -i <cloud-IP> -u <username> -p <password> -ct containerd -v 1.26.7
 ```
 From Master get join command
@@ -66,10 +81,6 @@ kubeadm token create --print-join-command
 Put command in Worker node to join the cluster 
 ```
 kubeadm join <cloud-ip>:6443 --token <token>
-```
-Restart the kubelet
-```
-systemctl restart kubelet
 ```
 
 ## Setting KubeEdge environment
@@ -98,15 +109,15 @@ go version
 ```
 ### 3.0 Installing keadm (Master | Worker )
 ```
-wget https://github.com/kubeedge/kubeedge/releases/download/v1.12.4/keadm-v1.12.4-linux-amd64.tar.gz
-tar -zxvf keadm-v1.12.4-linux-amd64.tar.gz
-cp keadm-v1.12.4-linux-amd64/keadm/keadm /usr/local/bin/keadm
+wget https://github.com/kubeedge/kubeedge/releases/download/v1.13.2/keadm-v1.13.2-linux-amd64.tar.gz
+tar -zxvf keadm-v1.13.2-linux-amd64.tar.gz
+cp keadm-v1.13.2-linux-amd64/keadm/keadm /usr/local/bin/keadm
 keadm version 
 ```
 
 ### 3.1 Setting up Cloudcore
 ```
-keadm init --kubeedge-version=1.12.4 --kube-config=/root/.kube/config --advertise-address=<cloudcore ip>
+keadm init --kubeedge-version=1.13.2 --kube-config=/root/.kube/config --advertise-address=<cloudcore ip>
 ```
 If it successed
 ```
@@ -172,7 +183,7 @@ keadm token > token.txt
 ```
 ### 3.2 Setting up EdgeCore
 ```
-keadm join --cloudcore-ipport=<cloudcore_ip>:10000 --token=<token>
+keadm join --cloudcore-ipport=<cloudcore_ip>:10000 --token=<token> --kubeedge-version=v1.13.2
 ```
 
 
