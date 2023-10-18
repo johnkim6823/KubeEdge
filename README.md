@@ -10,7 +10,7 @@
   </tr>
   <tr>
     <td align="center">OS</td>
-    <td colspan="3" align="center">ubuntu 20.04.0 LTS</td>
+    <td colspan="3" align="center">ubuntu 20.04.6 LTS</td>
   </tr>
   <tr>
     <td align="center">CORE(MEM)</td>
@@ -20,14 +20,14 @@
   </tr>
   <tr>
     <td align="center">Kubernetes</td>
-    <td colspan="2" align="center">v.1.25.0</td>
+    <td colspan="2" align="center">v.1.26.7</td>
     <td align="center"></td>
   </tr>
   <tr>
     <td align="center">KubeEdge</td>
-    <td align="center">v.1.12.1</td>
+    <td align="center">v.1.15.0</td>
     <td align="center"></td>
-    <td align="center">v.1.12.1</td>
+    <td align="center">v.1.15.0</td>
   </tr>
   <tr>
     <td align="center">ROLE</td>
@@ -52,12 +52,12 @@ chmod +x k8s-cluster-bootstrap.sh
 #### 1. master setup
 ```
 sudo su
-./k8s-cluster-bootstrap.sh -m -c 192.168.0.0/16 -i <cloud-IP>  -v 1.25.0
+./k8s-cluster-bootstrap.sh -m -c 192.168.0.0/16 -i <cloud-IP> -ct containerd -v 1.26.7
 ```
 #### 2. worker setup
 ```
 sudo su
-./k8s-cluster-bootstrap.sh -w -i <cloud-IP> -u <username> -p <password> -v 1.25.0
+./k8s-cluster-bootstrap.sh -w -i <cloud-IP> -u <username> -p <password> -ct containerd -v 1.26.7
 ```
 From Master get join command
 ```
